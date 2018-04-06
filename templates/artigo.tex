@@ -1,0 +1,319 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template: Article
+%
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+%
+% Citação: Se você gostou deste template, por favor ajude a divulgá-lo mantendo
+%          o link para meu repositório GitHub em:
+%          https://github.com/abrantesasf/LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configura o tipo de documento, papel, tamanho da fonte e informações básicas
+%%% para as proriedades do PDF/DVIPS e outras propriedades do documento
+\RequirePackage{ifpdf}
+\ifpdf
+  % Classe, língua e tamanho da fonte padrão. Outras opções a considerar:
+  %   draft
+  %   onecolumn (padrão) ou twocolumn (OU usar o package multicol)
+  %   fleqn com ou sem leqno (alinhamento à esquerda das fórmulas e dos números)
+  %   oneside (padrão para article ou report) ou twoside (padrão para book)
+  \documentclass[pdftex, brazil, 12pt, twoside]{article}
+\else
+  % Classe, língua e tamanho da fonte padrão. Outras opções a considerar:
+  %   draft
+  %   onecolumn (padrão) ou twocolumn (OU usar o package multicol)
+  %   fleqn com ou sem leqno (alinhamento à esquerda das fórmulas e dos números)
+  %   oneside (padrão para article ou report) ou twoside (padrão para book)
+  \documentclass[brazil, 12pt]{article}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega pacotes iniciais necessários para estrutura de controle e para a
+%%% criação e o parse de novos comandos
+\usepackage{ifthen}
+\usepackage{xparse}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configuração do tamanho da página, margens, espaçamento entrelinhas e, se
+%%% necessário, ativa a indentação dos primeiros parágrafos.
+\ifpdf
+  \usepackage[pdftex]{geometry}
+\else
+  \usepackage[dvips]{geometry}
+\fi
+\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=3cm}
+
+\usepackage{setspace}
+  \singlespacing
+  %\onehalfspacing
+  %\doublespacing
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de cabeçalho e rodapé:
+\usepackage{fancyhdr}
+\setlength{\headheight}{1cm}
+\setlength{\footskip}{1.5cm}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.0pt}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{%
+  \markboth{\uppercase{#1}}{}}
+\renewcommand{\subsectionmark}[1]{%
+  \markright{\uppercase{\thesubsection \hspace{0.1cm} #1}}{}}
+\fancyhead{}
+\fancyfoot{}
+\newcommand{\diminuifonte}{%
+    \fontsize{9pt}{9}\selectfont
+}
+\newcommand{\aumentafonte}{%
+    \fontsize{12}{12}\selectfont
+}
+% Configura cabeçalho e rodapé para documentos TWOSIDE
+\fancyhead[EL]{\textbf{\thepage}\hspace{0.9cm}\diminuifonte \leftmark}
+\fancyhead[EC]{}
+\fancyhead[ER]{}
+\fancyhead[OR]{\diminuifonte \rightmark\hspace{0.9cm}\aumentafonte \textbf{\thepage}}
+\fancyhead[OC]{}
+\fancyhead[OL]{}
+\fancyfoot[EL,EC,ER,OR,OC,OL]{}
+% Configura cabeçalho e rodapé para documentos ONESIDE
+%\lhead{ \fancyplain{}{sup esquerdo} }
+%\chead{ \fancyplain{}{sup centro} }
+%\rhead{ \fancyplain{}{\thesection} }
+%\lfoot{ \fancyplain{}{inf esquerdo} }
+%\cfoot{ \fancyplain{}{inf centro} }
+%\rfoot{ \fancyplain{}{\thepage} }
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de encoding, lingua e fontes:
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+
+% Altera a fonte padrão do documento (nem todas funcionam em modo math):
+%   phv = Helvetica
+%   ptm = Times
+%   ppl = Palatino
+%   pbk = bookman
+%   pag = AdobeAvantGarde
+%   pnc = Adobe NewCenturySchoolBook
+\renewcommand{\familydefault}{ppl}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega pacotes para referências cruzadas, citações dentro do documento,
+%%% links para internet e outros.Configura algumas opções.
+%%% Não altere a ordem de carregamento dos packages.
+\usepackage{varioref}
+\ifpdf
+  \usepackage[pdftex]{hyperref}
+    \hypersetup{
+      % Informações variáveis em cada documento (MUDE AQUI!):
+      pdftitle={Título do Documento},
+      pdfauthor={Abrantes Araújo Silva Filho},
+      pdfsubject={assunto do documento},
+      pdfkeywords={palavras, chaves, aqui},
+      pdfinfo={
+        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+      },
+      % Coisas que você não deve alterar se não souber o que está fazendo:
+      unicode=true,
+      pdflang={pt-BR},
+      bookmarksopen=true,
+      bookmarksnumbered=true,
+      bookmarksopenlevel=5,
+      pdfdisplaydoctitle=true,
+      pdfpagemode=UseOutlines,
+      pdfstartview=FitH,
+      pdfcreator={LaTeX with hyperref package},
+      pdfproducer={pdfTeX},
+      pdfnewwindow=true,
+      colorlinks=true,
+      citecolor=green,
+      linkcolor=red,
+      filecolor=cyan,
+      urlcolor=blue
+    }
+\else
+  \usepackage{hyperref}
+\fi
+\usepackage{cleveref}
+\usepackage{url}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega bibliotecas de símbolos (matemáticos, físicos, etc.), fontes
+%%% adicionais, e configura algumas opções
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+  \sisetup{group-separator = {.}}
+  \sisetup{group-digits = {false}}
+  \sisetup{output-decimal-marker = {,}}
+
+% Altera separador decimal via comando, se necessário (prefira o siunitx):
+%\mathchardef\period=\mathcode`.
+%\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega packages relacionados à computação
+\usepackage{algorithm2e}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{listings}
+  \lstset{literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+    {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+  }
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ativa suporte extendido a cores
+\usepackage[svgnames]{xcolor} % Opções de cores: usenames (16), dvipsnames (64),
+                              % svgnames (150) e x11names (300).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Suporte à importação de gráficos externos
+\ifpdf
+  \usepackage[pdftex]{graphicx}
+\else
+  \usepackage[dvips]{graphicx}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Suporte à criação de gráficos proceduralmente na LaTeX:
+\usepackage{tikz}
+  \usetikzlibrary{arrows,automata,backgrounds,matrix,patterns,positioning,shapes,shadows}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages para tabelas
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{tabu}
+\usepackage{lscape}
+\usepackage{colortbl}  
+\usepackage{booktabs}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages ambientes de listas
+\usepackage{enumitem}
+\usepackage[ampersand]{easylist}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages para suporte a ambientes floats, captions, etc.:
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{placeins}
+\usepackage{caption}
+\usepackage{sidecap}
+\usepackage{subcaption}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Meus comandos específicos:
+% Commando para ``italizar´´ palavras em inglês (e outras línguas!):
+\newcommand{\ingles}[1]{\textit{#1}}
+
+% Commando para colocar o espaço correto entre um número e sua unidade:
+\newcommand{\unidade}[2]{\ensuremath{#1\,\mathrm{#2}}}
+\newcommand{\unidado}[2]{{#1}\,{#2}}
+
+% Produz ordinal masculino ou feminino dependendo do segundo argumento:
+\newcommand{\ordinal}[2]{%
+#1%
+\ifthenelse{\equal{a}{#2}}%
+{\textordfeminine}%
+{\textordmasculine}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Hifenização específica quando o LaTeX/Babel não conseguirem hifenizar:
+\babelhyphenation{Git-Hub}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMEÇA O DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\title{Título do Documento}
+\author{Abrantes Araújo Silva Filho}
+\date{AAAA-MM-DD}
+\maketitle
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Seção}
+\label{etiqueta}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Subseção}
+\label{subetiqueta}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Subsubseção}
+\label{subsubetiqueta}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TERMINA O DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
+
+
+
+
+
+
+
