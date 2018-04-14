@@ -78,12 +78,12 @@
     \fontsize{12}{12}\selectfont
 }
 % Configura cabeçalho e rodapé para documentos TWOSIDE
-\fancyhead[EL]{\textbf{\thepage}\hspace{0.9cm}\diminuifonte \leftmark}
+\fancyhead[EL]{\textbf{\thepage}}
 \fancyhead[EC]{}
-\fancyhead[ER]{}
-\fancyhead[OR]{\diminuifonte \rightmark\hspace{0.9cm}\aumentafonte \textbf{\thepage}}
+\fancyhead[ER]{\diminuifonte \textbf{\leftmark}}
+\fancyhead[OR]{\textbf{\thepage}}
 \fancyhead[OC]{}
-\fancyhead[OL]{}
+\fancyhead[OL]{\diminuifonte \textbf{\rightmark}}
 \fancyfoot[EL,EC,ER,OR,OC,OL]{}
 % Configura cabeçalho e rodapé para documentos ONESIDE
 %\lhead{ \fancyplain{}{sup esquerdo} }
