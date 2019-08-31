@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+% URL: https://github.com/abrantesasf/latex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega bibliotecas e símbolos matemáticos, fontes adicionais e configura
+%%% algumas outras opções
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+  \sisetup{group-separator = {.}}
+  \sisetup{group-digits = {true}}
+  \sisetup{output-decimal-marker = {,}}
+\usepackage{bm}
+\usepackage{cancel}
+
+% Altera separador decimal via comando, se necessário (prefira o siunitx):
+%\mathchardef\period=\mathcode`.
+%\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+
+\usepackage{esvect}
+\usepackage{mathtools}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Definições para teoremas, etc.
+\theoremstyle{definition}
+\newtheorem{definicao}{Definição}[chapter]
+\newtheorem{conjecture}{Conjectura}[chapter]
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{lemma}{Lema}[chapter]
+\newtheorem{corolario}{Corolario}[chapter]
+\theoremstyle{remark}
+\newtheorem*{nota}{Nota}
+\newtheorem*{observacao}{Observação:}

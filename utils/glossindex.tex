@@ -1,0 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Pacotes para glossário e índice remissivo
+\usepackage{makeidx}
+\makeindex
+
+\usepackage[toc]{glossaries}
+\newglossary[nlg]{notation}{not}{ntn}{Notação}
+
+\newglossaryentry{not:set}{
+type = notation,
+name = {$\mathbb{N}$},
+description = conjunto dos números naturais,
+sort = {N}}
+
+\makeglossaries

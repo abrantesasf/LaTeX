@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+% URL: https://github.com/abrantesasf/latex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega pacotes para referências cruzadas, citações dentro do documento,
+%%% links para internet e outros.Configura algumas opções.
+%%% Não altere a ordem de carregamento dos packages.
+\usepackage{varioref}
+\ifpdf
+  \usepackage[pdftex]{hyperref}
+    \hypersetup{
+      % Informações variáveis em cada documento (MUDE AQUI!):
+      pdftitle={Refresco Matemático},
+      pdfauthor={Abrantes Araújo Silva Filho},
+      pdfsubject={Revisão de matemática em nível pré-universitário},
+      pdfkeywords={matemática, revisão},
+      pdfinfo={
+        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+      },
+      % Coisas que você não deve alterar se não souber o que está fazendo:
+      unicode=true,
+      pdflang={pt-BR},
+      bookmarksopen=true,
+      bookmarksnumbered=true,
+      bookmarksopenlevel=5,
+      pdfdisplaydoctitle=true,
+      pdfpagemode=UseOutlines,
+      pdfstartview=FitH,
+      pdfcreator={LaTeX with hyperref package},
+      pdfproducer={pdfTeX},
+      pdfnewwindow=true,
+      colorlinks=true,
+      citecolor=red,
+      linkcolor=red,
+      filecolor=cyan,
+      urlcolor=blue
+    }
+\else
+  \usepackage{hyperref}
+\fi
+\usepackage{cleveref}
+\usepackage{url}

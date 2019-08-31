@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+% URL: https://github.com/abrantesasf/latex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de cabeçalho e rodapé:
+%%% Atenção: é MUITO DIFÍCIL ajustar apropriadamente os running header
+%%% e footer da primeira vez. Você pode confiar no LaTeX e deixar que
+%%% ele faça o ajuste automaticamente ou pode quebrar a cabeça e
+%%% tentar melhorar algo que o LaTeX já faz muito bem. O que você
+%%% perfere?
+\usepackage{fancyhdr}
+\setlength{\headheight}{1cm}
+\setlength{\footskip}{1.5cm}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.0pt}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{%
+  \markboth{\uppercase{#1}}{}}
+\renewcommand{\subsectionmark}[1]{%
+  \markright{\uppercase{\thesubsection \hspace{0.1cm} #1}}{}}
+\fancyhead{}
+\fancyfoot{}
+\newcommand{\diminuifonte}{%
+    \fontsize{9pt}{9}\selectfont
+}
+\newcommand{\aumentafonte}{%
+    \fontsize{12}{12}\selectfont
+}
+% Configura cabeçalho e rodapé para documentos TWOSIDE
+\fancyhead[EL]{\textbf{\thepage}}
+\fancyhead[EC]{}
+\fancyhead[ER]{\diminuifonte \textbf{\leftmark}}
+\fancyhead[OR]{\textbf{\thepage}}
+\fancyhead[OC]{}
+\fancyhead[OL]{\diminuifonte \textbf{\rightmark}}
+\fancyfoot[EL,EC,ER,OR,OC,OL]{}
+% Configura cabeçalho e rodapé para documentos ONESIDE
+%%\lhead{ \fancyplain{}{sup esquerdo} }
+%%\chead{ \fancyplain{}{sup centro} }
+%%\rhead{ \fancyplain{}{\thesection} }
+%%\lfoot{ \fancyplain{}{inf esquerdo} }
+%%\cfoot{ \fancyplain{}{inf centro} }
+%%\rfoot{ \fancyplain{}{\thepage} }

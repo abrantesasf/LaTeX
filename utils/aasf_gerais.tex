@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+% URL: https://github.com/abrantesasf/latex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Vários comandinhos úteis e outras gambiarras
+
+% Commando para ``italizar´´ palavras em inglês (e outras línguas!):
+\newcommand{\ingles}[1]{\textit{#1}}
+
+% Commando para colocar o espaço correto entre um número e sua unidade:
+\newcommand{\unidade}[2]{\ensuremath{#1\,\mathrm{#2}}}
+\newcommand{\unidado}[2]{{#1}\,{#2}}
+
+% Produz ordinal masculino ou feminino dependendo do segundo argumento:
+\newcommand{\ordinal}[2]{%
+#1%
+\ifthenelse{\equal{a}{#2}}%
+{\textordfeminine}%
+{\textordmasculine}}
+
+% Comando para colocar o autor da citação corretamente justificado à direita:
+% Modificado de: https://latex.org/forum/viewtopic.php?p=15605&sid=216895679326b531e85caec779e1d710#p15605
+\newcommand*{\fontequote}[2]{%
+   \unskip\hspace*{1em plus 1fill}%
+   \linebreak\hspace*{\fill}\mbox{#1}\vspace{-0.15cm}
+   \linebreak\hspace*{\fill}\mbox{#2}
+}
