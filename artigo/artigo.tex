@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Modelo para livro
+% Modelo para artigo
 %
 % Por: Abrantes Araújo Silva Filho
 %      abrantesasf@gmail.com
@@ -9,9 +9,9 @@
 %%% Classe do documento
 \RequirePackage{ifpdf}
 \ifpdf
-  \documentclass[pdftex, brazil, 12pt, twoside]{book}
+  \documentclass[pdftex, brazil, 12pt, twoside]{article}
 \else
-  \documentclass[brazil, 12pt, twoside]{book}
+  \documentclass[brazil, 12pt, twoside]{article}
 \fi
 
 
@@ -30,7 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Configurações para as propriedades do PDF:
 \hypersetup{
-      pdftitle={TÍTULO DO LIVRO},
+      pdftitle={TÍTULO DO ARTIGO},
       pdfauthor={Abrantes Araújo Silva Filho},
       pdfsubject={ASSUNTO},
       pdfkeywords={KEYWORDS},
@@ -52,35 +52,30 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Front matter
-\frontmatter
-\title{Título do Livro}
+\title{TÍTULO}
 \author{Abrantes Araújo Silva Filho}
-\date{Agosto de 2019}
+\date{DATA}
 \maketitle
-\include{front/dedicatoria}
+
+%\renewcommand{\abstractname}{novo título do abstract}
+\abstract{RESUMO}
+
 \tableofcontents
-\include{front/prefacio}
-\include{front/agradecimentos}
-\listoftables
-\listoffigures
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Main matter
-\mainmatter
-\part{Título da parte}
-\include{main/capitulo}
+\input{main/placeholder}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Apêndices
-\appendix
-\include{apend/apendice}
+%\appendix
+%\include{apend/placeholder}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Back matter
-\backmatter
 \bibliography{utils/biblioteca}
 
 \printindex
