@@ -1,3 +1,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+% URL: https://github.com/abrantesasf/latex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ajustes de sumário
+\makeatletter
+\@ifclassloaded{article}{
+\usepackage[nottoc]{tocbibind}
+}{}
+\@ifclassloaded{book}{
 \usepackage{tocbibind}
+}{}
+\makeatother
