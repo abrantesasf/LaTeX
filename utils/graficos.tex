@@ -7,11 +7,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Suporte à importação de gráficos externos
 %\usepackage{tcolorbox}
-\ifpdf
-  \usepackage[pdftex]{graphicx}
-\else
-  \usepackage[dvips]{graphicx}
-\fi
+\makeatletter
+\@ifclassloaded{beamer}{
+  \usepackage{graphicx}
+}{
+  \ifpdf
+    \usepackage[pdftex]{graphicx}
+  \else
+    \usepackage[dvips]{graphicx}
+  \fi
+}
+\makeatother
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Suporte à criação de gráficos proceduralmente no LaTeX:
