@@ -1,15 +1,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Pacotes para glossário e índice remissivo
-\usepackage{makeidx}
-\makeindex
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+% URL: https://github.com/abrantesasf/latex
 
-\usepackage[toc]{glossaries}
-\newglossary[nlg]{notation}{not}{ntn}{Notação}
 
-\newglossaryentry{not:set}{
-type = notation,
-name = {$\mathbb{N}$},
-description = conjunto dos números naturais,
-sort = {N}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Pacote para índice remissivo
+\makeatletter
+\@ifclassloaded{beamer}{}
+{
+  \usepackage{makeidx}
+  \makeindex
+}
+\makeatother
 
-\makeglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Pacote para glossário
+\makeatletter
+\@ifclassloaded{beamer}{}
+{
+  \usepackage[toc]{glossaries}
+  \newglossary[nlg]{notation}{not}{ntn}{Notação}
+  \newglossaryentry{not:set}{
+  type = notation,
+  name = {$\mathbb{N}$},
+  description = conjunto dos números naturais,
+  sort = {N}}
+  \makeglossaries
+}
+\makeatother
