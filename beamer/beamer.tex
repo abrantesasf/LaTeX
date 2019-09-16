@@ -1,0 +1,163 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modelo para apresentações do Magister
+%
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Classe do documento
+\RequirePackage{ifpdf}
+\ifpdf
+  \pdfminorversion=7
+  \documentclass[pdftex, brazil]{beamer}
+\else
+  \documentclass[brazil]{beamer}
+\fi
+\setbeamertemplate{navigation symbols}{}
+\usetheme{Magister}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Preâmbulo com todas as outras outras chamadas para todos os outros packages
+%%% e o que mais for necessário
+\input{utils/preambulo.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações para as propriedades do PDF:
+\hypersetup{
+      pdftitle={TÍTULO DA APRESENTAÇÃO},
+      pdfauthor={Abrantes Araújo Silva Filho},
+      pdfsubject={ASSUNTO},
+      pdfkeywords={KEYWORDS},
+      pdfinfo={
+        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+      }}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Para o início de cada seção:
+\AtBeginSection[]
+{
+\begin{frame}[shrink]
+	\frametitle{Tópicos}
+	\footnotesize
+	\tableofcontents[currentsection,hideothersubsections]
+\end{frame}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Dados da Capa:
+\title{TÍTULO DA APRESENTAÇÃO}
+\subtitle{}
+\author{\textbf{Abrantes Araújo Silva Filho}}
+\institute[\textbf{Magister --- plataforma para educação online}]{
+	\href{https://www.magister.pro.br/}{\includegraphics[scale=0.52]{imagens/magister.pdf}}
+}
+\date{Vila Velha, 15/09/2019}
+\subject{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Começa a apresentação!
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Slide de capa:
+\begin{frame}
+\thispagestyle{empty}
+\titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Licença de uso (descomentar se necessário):
+\begin{frame}
+	\thispagestyle{empty}
+	\setcounter{framenumber}{0}
+	\frametitle{Sobre esta apresentação}
+	\begin{itemize}
+		\item Disponível em:
+          \url{https://www.magister.pro.br/material}
+		\item Sob licença:
+          \textit{Creative Commons Atribuição-Não Comercial 3.0 Brasil}:
+          \url{http://creativecommons.org/licenses/by-nc/3.0/br}
+	\end{itemize}
+	\begin{center}
+		\ccLogo
+		\hspace{1cm}
+		\ccAttribution
+		\hspace{1cm}
+		\ccNonCommercial
+	\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Info do apresentador/magister (descomentar se necessário):
+\begin{frame}
+	\thispagestyle{empty}
+	\setcounter{framenumber}{0}
+	\frametitle{Apresentação}
+	\begin{itemize}
+		\item \textbf{Abrantes Araújo Silva Filho}
+		\begin{itemize}
+			\item Graduando em Ciência da Computação
+			\item Mestre em Epidemiologia (Métodos Quantitativos em Saúde)
+			\item Médico
+			\item \url{https://www.linkedin.com/in/abrantes-filho/}
+		\end{itemize}
+		\item \textbf{Magister}
+		\begin{itemize}
+			\item A empresa brasileira de Open edX
+			\item Consultoria
+			\item Desenvolvimento
+			\item Treinamento
+            \item \url{https://www.magister.pro.br/}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Seção X:
+\section{XXX}
+
+\begin{frame}
+	\frametitle{Título XXX}
+
+	\begin{itemize}
+		\item blá
+		\item blá blá
+		\item blá blá blá
+		\item blá blá blá blá
+	\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Slide de encerramento com contato (descomentar se necessário)
+\begin{frame}
+\frametitle{Perguntas}
+\begin{center}
+  \Huge ?
+  \vspace{1.6cm}
+  \normalsize
+  \\
+  Abrantes Araújo Silva Filho
+  \\
+  \url{abrantesasf@magister.pro.br}
+  \\
+  \url{https://www.magister.pro.br/}
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Encerra a apresentação!
+\end{document}
