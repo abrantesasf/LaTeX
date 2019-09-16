@@ -6,7 +6,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ativa suporte extendido a cores
-\usepackage[svgnames]{xcolor} % Opções de cores: usenames (16), dvipsnames (64),
-                              % svgnames (150) e x11names (300).
-
-
+\makeatletter
+\@ifclassloaded{beamer}{
+  \usepackage{xcolor} % Opções de cores: usenames (16), dvipsnames (64),
+                      % svgnames (150) e x11names (300).
+}{
+  \usepackage[svgnames]{xcolor} % Opções de cores: usenames (16), dvipsnames (64),
+                                % svgnames (150) e x11names (300).
+}
+\makeatother
