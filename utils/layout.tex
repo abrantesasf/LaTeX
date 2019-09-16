@@ -7,10 +7,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Configuração do tamanho da página, margens, espaçamento entrelinhas e, se
 %%% necessário, ativa a indentação dos primeiros parágrafos.
+\makeatletter
+\@ifclassloaded{beamer}{}{
 \ifpdf
   \usepackage[pdftex]{geometry}
 \else
   \usepackage[dvips]{geometry}
 \fi
+}
+\makeatother
 
 \usepackage{setspace}
