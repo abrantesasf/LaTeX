@@ -6,5 +6,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Packages para ambientes de listas
-\usepackage{enumitem}
-\usepackage[ampersand]{easylist}
+\makeatletter
+\@ifclassloaded{beamer}{
+  \usepackage{listings}
+}{
+  \usepackage{enumitem}
+  \usepackage[ampersand]{easylist}
+}
+\makeatother
+
