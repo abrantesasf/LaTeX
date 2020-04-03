@@ -5,92 +5,104 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Compilação condicional em PDF
-\input{utils/pdf}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Estruturas de controle
+%%% Estruturas de controle:
 \input{utils/controles}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Configurações de layout da página
+%%% Compilação condicional em PDF:
+\input{utils/pdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de layout da página:
 \input{utils/layout}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Configurações para autores
+%%% Configurações para autores:
 \input{utils/autores}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Cabeçalho e rodapé
+%%% Cabeçalho e rodapé:
+%%% Atenção! É MUITO DIFÍCIL ajustar apropriadamente os running headers
+%%% e running footers da primeira vez. Você pode confiar no LaTeX e deixar que
+%%% ele faça o ajuste automaticamente ou pode quebrar a cabeça e
+%%% tentar melhorar algo que o LaTeX já faz muito bem, mesmo que não fique
+%%% exatamente do jeito que você quer. O que você prefere? Se quiser ajustar
+%%% manualmente, descomente a linha abaixo e faça as configurações no arquivo
+%%% "utils/headings.tex".
 %\input{utils/headings}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Fontes
+%%% Configuração para as fontes do documento:
+%%% Se você quiser usar fontes próprias ou do sistema, precisará ajustar as
+%%% configurações no arquivo "utils/fontes.tex".
+%%% ATENÇÃO: por padrão eu utilizo XeLaTeX com fontes proprietárias projetadas
+%%% por Matthew Butterick, adquiridas em https://mbtype.com, que não podem ser
+%%% distribuídas devido à licença de utilização. Se você usar XeLaTeX, você
+%%% DEVERÁ OBRIGATORIAMENTE ajustar as fontes no arquivo "utils/fontes.tex".
 \input{utils/fontes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Linguagem e hifenização
+%%% Linguagem e hifenização:
 \input{utils/linguagem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Matemática
-\input{utils/matematica}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Sumário
+%%% Sumário:
 \input{utils/toc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Referências cruzadas, links, citações
+%%% Matemática:
+\input{utils/matematica}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Referências cruzadas, links, citações:
 \input{utils/crossrefs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Referências bibliográficas
+%%% Referências bibliográficas:
 \input{utils/bibliografia}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Glossário e índice remissivo
+%%% Glossário e índice remissivo:
 \input{utils/glossindex}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Cores
+%%% Cores:
 \input{utils/cores}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Computação
+%%% Computação:
 \input{utils/computacao}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Gráficos
+%%% Gráficos:
 \input{utils/graficos}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Ícones
+%%% Ícones:
 \input{utils/icones}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Blocos
+%%% Blocos:
 \input{utils/blocos}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Boxes coloridos
+%%% Boxes coloridos:
 \input{utils/colorbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Tabelas
+%%% Tabelas:
 \input{utils/tabelas}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Ambientes de listas
+%%% Ambientes de listas:
 \input{utils/listas}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Ambientes floats e similares
+%%% Ambientes floats e similares:
 \input{utils/floats}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Meus comandos gerais
-\input{utils/aasf_gerais}
+%%% Ambientes, aliases, comandos e customizações em geral para serem
+%%% utilizadas nos documentos. Defina aqui qualquer customização específica
+%%% para seus documentos!
+\input{utils/customizacoes}

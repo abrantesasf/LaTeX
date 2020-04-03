@@ -5,15 +5,25 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Configurações de encoding, lingua e fontes:
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-
-% Altera a fonte padrão do documento (nem todas funcionam em modo math):
-%   phv = Helvetica
-%   ptm = Times
-%   ppl = Palatino
-%   pbk = bookman
-%   pag = AdobeAvantGarde
-%   pnc = Adobe NewCenturySchoolBook
-\renewcommand{\familydefault}{ppl}
+%%% Configurações de encodings e fontes:
+\ifxetex
+   % Se usar XeLaTeX, usa fontes específicas:
+   \usepackage[tuenc,no-math]{fontspec}
+   \setmainfont{equity-text-a-regular.otf}[
+      Path           = /home/abrantesasf/.local/share/fonts/ ,
+      BoldFont       = equity-text-a-bold.otf                ,
+      ItalicFont     = equity-text-a-italic.otf              ,
+      BoldItalicFont = equity-text-a-bold-italic.otf]
+\else
+   % Se não for XeLaTeX, vai com as normais mesmo:
+   \usepackage[T1]{fontenc}
+   \usepackage[utf8]{inputenc}
+   % Altera a fonte padrão do documento (nem todas funcionam em modo math):
+   %   phv = Helvetica
+   %   ptm = Times
+   %   ppl = Palatino
+   %   pbk = bookman
+   %   pag = AdobeAvantGarde
+   %   pnc = Adobe NewCenturySchoolBook
+   \renewcommand{\familydefault}{ppl}
+\fi

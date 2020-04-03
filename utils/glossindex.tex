@@ -9,8 +9,8 @@
 \makeatletter
 \@ifclassloaded{beamer}{}
 {
-  \usepackage{makeidx}
-  \makeindex
+   \usepackage{makeidx}
+   %\makeindex
 }
 \makeatother
 
@@ -20,13 +20,13 @@
 \makeatletter
 \@ifclassloaded{beamer}{}
 {
-  \usepackage[toc]{glossaries}
-  \newglossary[nlg]{notation}{not}{ntn}{Notação}
-  \newglossaryentry{not:set}{
-  type = notation,
-  name = {$\mathbb{N}$},
-  description = conjunto dos números naturais,
-  sort = {N}}
-  \makeglossaries
+   \usepackage[toc]{glossaries}
+   %\newglossary[nlg]{notation}{not}{ntn}{Notação}
+   %\newglossaryentry{not:set}{
+   %   type = notation,
+   %   name = {$\mathbb{N}$},
+   %   description = conjunto dos números naturais,
+   %   sort = {N}}
+   %\makeglossaries
 }
 \makeatother

@@ -5,5 +5,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Pacote para compilaçãocondicional em PDF
-\usepackage{ifpdf}
+%%% Pacotes para compilaçãocondicional em PDF:
+\ifxetex
+\else
+   \usepackage{ifpdf}
+\fi

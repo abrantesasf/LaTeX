@@ -6,8 +6,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Configurações de linguagem e hifenização
-\usepackage[brazil]{babel}
+\usepackage{polyglossia}
+\setdefaultlanguage{brazil}
+\setotherlanguage{english}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Hifenização específica quando o LaTeX/Babel não conseguirem hifenizar:
-\babelhyphenation{Git-Hub}
+%%% Hifenização específica de alguams palavras quando a hifenização padrão não
+%%% estiver hifenizando corretamente:
+\hyphenation{%
+Git-Hub
+LaTeX
+po-ly-glos-sia
+}

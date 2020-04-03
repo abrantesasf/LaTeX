@@ -7,36 +7,42 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Carrega pacotes para referências cruzadas, citações dentro do documento,
 %%% links para internet e outros.Configura algumas opções.
-%%% Não altere a ordem de carregamento dos packages.
+%%% NÃO ALTERE a ordem de carregamento dos packages!
 \makeatletter
-  \@ifclassloaded{beamer}{
-}{
-  \usepackage{varioref}
-  \ifpdf
-    \usepackage[pdftex]{hyperref}
-      \hypersetup{
-        % Configurações padrão que eu gosto
-        unicode=true,
-        pdflang={pt-BR},
-        bookmarksopen=true,
-        bookmarksnumbered=true,
-        bookmarksopenlevel=5,
-        pdfdisplaydoctitle=true,
-        pdfpagemode=UseOutlines,
-        pdfstartview=FitH,
-        pdfcreator={LaTeX with hyperref package},
-        pdfproducer={pdfTeX},
-        pdfnewwindow=true,
-        colorlinks=true,
-        citecolor=red,
-        linkcolor=red,
-        filecolor=cyan,
-        urlcolor=blue
-      }
-  \else
-    \usepackage{hyperref}
-  \fi
-  \usepackage{cleveref}
-  \usepackage{url}
+\@ifclassloaded{beamer}{}{
+   \usepackage{varioref}
+   \ifxetex
+      \usepackage{hyperref}
+      \usepackage[brazilian]{cleveref}
+   \else
+      \ifpdf
+         \usepackage[pdftex]{hyperref}
+      \else
+         \usepackage[dvips]{hyperref}
+      \fi
+      \usepackage{cleveref}
+   \fi
+   \usepackage{url}
+   
 }
 \makeatother
+
+% Configurações padronizadas que eu gosto nos PDFs:
+\hypersetup{
+   unicode=true,
+   pdflang={pt-BR},
+   bookmarksopen=true,
+   bookmarksnumbered=true,
+   bookmarksopenlevel=5,
+   pdfdisplaydoctitle=true,
+   pdfpagemode=UseOutlines,
+   pdfstartview=FitH,
+   pdfcreator={TeX Live 2019: XeTeX (0.999991) + LaTeX2e (2018-12-01) + eTeX (2.6) + TeX (3.14159265)},
+   pdfproducer={xdvipdfmx (20190225)},
+   pdfnewwindow=true,
+   colorlinks=true,
+   citecolor=red,
+   linkcolor=red,
+   filecolor=cyan,
+   urlcolor=blue
+}
