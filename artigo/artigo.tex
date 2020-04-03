@@ -7,79 +7,62 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Classe do documento
-\RequirePackage{ifpdf}
-\ifpdf
-  \documentclass[pdftex, brazil, 12pt, twoside]{article}
-\else
-  \documentclass[brazil, 12pt, twoside]{article}
-\fi
-
+\documentclass[12pt, twoside]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Preâmbulo com todas as outras outras chamadas para todos os outros packages
 %%% e o que mais for necessário
 \input{utils/preambulo.tex}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ajuste do layout, espaçamento de linhas e etc.:
-\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2cm}
-\onehalfspacing
-
+\geometry{a4paper}
+%\onehalfspacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Configurações para as propriedades do PDF:
 \hypersetup{
-      pdftitle={TÍTULO DO ARTIGO},
-      pdfauthor={Abrantes Araújo Silva Filho},
-      pdfsubject={ASSUNTO},
-      pdfkeywords={KEYWORDS},
-      pdfinfo={
-        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
-        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
-      }}
-
+   pdftitle={TÍTULO DO ARTIGO},
+   pdfauthor={Abrantes Araújo Silva Filho},
+   pdfsubject={ASSUNTO},
+   pdfkeywords={KEYWORDS},
+   pdfinfo={
+      CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+      ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+   }
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Compilação condicional de capítulos
 %\includeonly{}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Começa o documento
 \begin{document}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Front matter
-\title{TÍTULO}
+\title{Este é o título do artigo}
 \author{Abrantes Araújo Silva Filho}
-\date{DATA}
+\date{data}
 \maketitle
-
 %\renewcommand{\abstractname}{novo título do abstract}
-\abstract{RESUMO}
-
+\abstract{Este é o resumo do artigo.}
 \tableofcontents
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Main matter
 \input{main/placeholder}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Apêndices
 %\appendix
 %\include{apend/placeholder}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Back matter
-\bibliography{utils/biblioteca}
-
-\printindex
-
+%\bibliography{utils/biblioteca}
+%\printindex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Termina o documento
