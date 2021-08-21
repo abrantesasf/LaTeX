@@ -1,13 +1,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Modelo para artigo
+% artigo.tex
 %
-% Por: Abrantes Araújo Silva Filho
-%      abrantesasf@gmail.com
+% Modelo para artigo, conforme minhas preferências.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% ALTERE DE ACORDO COM SUA NECESSIDADE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Classe do documento
-\documentclass[12pt, twoside]{article}
+\documentclass[12pt]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Preâmbulo com todas as outras outras chamadas para todos os outros packages
@@ -16,7 +21,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ajuste do layout, espaçamento de linhas e etc.:
-\geometry{a4paper}
+\geometry{a4paper, portrait, twoside, %left=1.5in, hmarginratio=2:3,
+bindingoffset=0in}
 %\onehalfspacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,18 +30,19 @@
 \hypersetup{
    %hidelinks,           % Comente para web, descomente para impressão
    colorlinks=true,      % True para web, False para impressão
-   pdftitle={TÍTULO DO ARTIGO},
+   pdftitle={Título do PDF},
    pdfauthor={Abrantes Araújo Silva Filho},
-   pdfsubject={ASSUNTO},
-   pdfkeywords={KEYWORDS},
+   pdfsubject={Assunto do artigo no PDF},
+   pdfkeywords={palavras-chave no PDF},
    pdfinfo={
       CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
       ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
    }
 }
+\input{utils/pdfconfig}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Compilação condicional de capítulos
+%%% Compilação condicional de seções
 %\includeonly{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,22 +51,38 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Front matter
-\title{Este é o título do artigo}
+
+% Bookmark para a capa do artigo
+\pdfbookmark[1]{Início}{titulo}
+
+% Título (se necessário um subtítulo, usar quebra de linha e o tamanho large):
+\title{\textbf{Título do Artigo}}
+%\bookmark[dest=titulo,level=chapter]{Title Page}
+
+% Autor e data:
 \author{Abrantes Araújo Silva Filho}
-\date{data}
+\date{2021-xx-xx}
+
+% Gera os títulos:
 \maketitle
-%\renewcommand{\abstractname}{novo título do abstract}
-\abstract{Este é o resumo do artigo.}
+
+% Abstract:
+%\renewcommand{\abstractname}{\textbf{LEIA COM ATENÇÃO!}}
+\abstract{\noindent Escreva aqui o abstract, ou comente.}
+
+% Sumário:
+\pdfbookmark[1]{Sumário}{sumario}
 \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Main matter
+\newpage
 \input{main/placeholder}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Apêndices
 %\appendix
-%\include{apend/placeholder}
+%\input{apend/placeholder}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Back matter
@@ -69,3 +92,4 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Termina o documento
 \end{document}
+

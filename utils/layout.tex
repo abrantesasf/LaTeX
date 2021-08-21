@@ -1,24 +1,53 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Por: Abrantes Araújo Silva Filho
-%      abrantesasf@gmail.com
-% URL: https://github.com/abrantesasf/latex
+% layout.tex
+%
+% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+% preferências e modelos pessoais.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Configuração do tamanho da página, margens, espaçamento entrelinhas e, se
 %%% necessário, ativa a indentação dos primeiros parágrafos.
 
+% Para article:
 \makeatletter
-\@ifclassloaded{beamer}{}{
-\usepackage{setspace}
-\ifxetex
-   \usepackage[xetex]{geometry}
-\else
-   \ifpdf
-     \usepackage[pdftex]{geometry}
-   \else
-     \usepackage[dvips]{geometry}
-   \fi
+\@ifclassloaded{article}{
+  \usepackage{setspace}
+  \ifxetex
+    \usepackage[xetex]{geometry}
+  \else
+    \ifpdf
+      \usepackage[pdftex]{geometry}
+    \else
+      \usepackage[dvips]{geometry}
+  \fi
+  \usepackage{microtype}
+  \usepackage{lastpage}
 \fi
-}
+}{}
 \makeatother
+
+% Para book:
+\makeatletter
+\@ifclassloaded{book}{
+  \usepackage{setspace}
+  \ifxetex
+    \usepackage[xetex]{geometry}
+  \else
+    \ifpdf
+      \usepackage[pdftex]{geometry}
+    \else
+      \usepackage[dvips]{geometry}
+  \fi
+  \usepackage{microtype}
+  \usepackage{lastpage}
+\fi
+}{}
+\makeatother
+
