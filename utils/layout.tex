@@ -51,3 +51,20 @@
 }{}
 \makeatother
 
+% Para exam:
+\makeatletter
+\@ifclassloaded{exam}{
+  \usepackage{setspace}
+  \ifxetex
+    \usepackage[xetex]{geometry}
+  \else
+    \ifpdf
+      \usepackage[pdftex]{geometry}
+    \else
+      \usepackage[dvips]{geometry}
+  \fi
+  \usepackage{microtype}
+  \usepackage{lastpage}
+\fi
+}{}
+\makeatother

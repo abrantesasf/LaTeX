@@ -1,0 +1,217 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% prova.tex
+%
+% Modelo para prova, conforme minhas preferências.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% ALTERE DE ACORDO COM SUA NECESSIDADE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Classe do documento
+\documentclass[12pt, addpoints]{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Preâmbulo com todas as outras outras chamadas para todos os outros packages
+%%% e o que mais for necessário
+\input{utils/preambulo.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ajuste do layout, espaçamento de linhas e etc.:
+\geometry{a4paper, portrait, oneside,%
+          left=2.0cm, right=2.0cm, top=2.0cm, bottom=2.0cm}
+\singlespacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de cabeçalho e rodapé (não use fancyhdr pois ocorre conflito):
+\pagestyle{headandfoot}
+\runningheadrule
+\firstpageheader{}{}{}
+\runningheader{Design e Desenvolvimento de Bancos de Dados}{}{1ª Avaliação}
+\firstpagefooter{}{}{Página \thepage\ de \numpages}
+\runningfooter{}{}{Página \thepage\ de \numpages}
+\runningfootrule
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações para as propriedades do PDF:
+\hypersetup{
+   %hidelinks,           % Comente para web, descomente para impressão
+   colorlinks=true,      % True para web, False para impressão
+   pdftitle={Título do PDF},
+   pdfauthor={Abrantes Araújo Silva Filho},
+   pdfsubject={Assunto do artigo no PDF},
+   pdfkeywords={palavras-chave no PDF},
+   pdfinfo={
+      CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+      ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+   }
+}
+\input{utils/pdfconfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Compilação condicional de seções
+%\includeonly{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Começa o documento
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Capa da prova
+\begin{coverpages}
+
+\begin{center}
+\textbf{\Large%
+Design e Desenvolvimento de Bancos de Dados\\
+--- 1ª Avaliação ---}
+\end{center}
+
+\vspace{0.6cm}
+
+\begin{wrapfigure}{R}{0.45  \textwidth}
+\vspace{-0.7cm}
+\begin{center}
+\includegraphics[scale=0.55]{moby-dick.png}\\
+\footnotesize{Moby Dick ou A Baleia, de Herman Melville.\\
+Capa da edição bilíngue publicada pela\\
+Editora Landmark, em 2012.}
+\vspace{-0.7cm}
+\end{center}
+\end{wrapfigure}
+
+\begin{center}
+\textbf{Moby Dick ou A Baleia}, de Herman Melville.
+
+\vspace{0.5cm}
+Excerto do naufrágio do Pequod:
+\end{center}
+\vspace{-0.3cm}
+\small{%
+``O arpão foi disparado. A baleia ferida avançou voando. As cordas corriam pelas
+ranhuras com velocidade assombrosa. Ahab parou para desembaraçá-las; conseguiu,
+mas uma das voltas se enrolou em seu pescoço e silenciosamente, como os turcos
+mudos degolam suas vítimas, foi atirado para fora do bote antes que a
+tripulação percebesse. No instante seguinte o pesado laço da extremidade da
+corda soltou-se do carretel, abateu um remador e golpeando o mar desapareceu em
+suas profundezas.
+
+Por um momento, a tripulação do bote permaneceu em transe, e depois voltou a si.
+`O navio? Deus Todo Poderoso, onde está o navio?' Logo perceberam através da
+névoa seu fantasma difuso e assustador como uma diáfana miragem da Fada Morgana.
+Apenas seus mastros mais altos permaneciam fora da água. Tomados de paixão cega,
+fidelidade ou destino, os arpoadores pagãos ainda se mantinham agarrados a eles,
+o olhar fixo no mar. Ondas concêntricas se apossaram do navio solitário e de
+toda sua tripulação, de cada remo flutuante e de cada cabo de lança, e dando
+voltas e mais voltas em um único vórtice, carregaram com elas até as menores
+lascas de madeira do Pequod.
+
+Porém, enquanto as últimas convulsões do mar cobriam a cabeça do índio sobre o
+mastro real, deixando visíveis algumas polegadas da verga ereta com a bandeira
+que ondulava com calma ironia sobre as ondas destruidoras que quase tocava, um
+braço vermelho e um martelo pairaram no ar, no ato de fixar a bandeira no mastro
+que submergia. De sua morada natural entre as estrelas, um gavião seguira o
+movimento descendente do mastro real, e agora bicava a bandeira e azucrinava
+Tashtego. O pássaro inseriu a asa entre o martelo e a madeira. Sentindo o
+estremecimento etéreo, em seu estertor de morte o selvagem submerso manteve o
+martelo paralisado ali, de modo que o pássaro do céu, com gritos arcangélicos e
+o bico imperial voltado para cima, sua forma cativa envolta na bandeira de Ahab,
+submergiu com o navio que, como Satã, não poderia deixar de afundar sem carregar
+consigo uma parte viva do céu para utilizar como elmo.
+
+Pequenos pássaros gritavam, voando sobre o bocejo do abismo, uma triste espuma
+branca ainda batia em seu costado íngreme. Em seguida tudo desapareceu e a
+imensa mortalha do mar voltou a ondular, inalterado como há cinco mil anos.''}
+
+\begin{center}
+\textbf{\Large%
+--- Capítulos: 1, 2, 5, 6 e 7 ---\\
+\ \\
+Março/2022}
+\end{center}
+
+\end{coverpages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Folha de instruções da prova
+\newpage
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.3]{logo-uvv.png}
+\end{center}	
+\end{figure}
+
+\vspace{-1cm}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|llll|}
+\hline
+\multicolumn{2}{|l|}{\textbf{Disciplina:} Design e Desenvolvimento de Bancos de Dados} & \multicolumn{1}{l|}{\multirow{3}{*}{\textbf{\makecell{Nota:\\ \,\\ \,}}}} & \multirow{3}{*}{\textbf{\makecell{Coordenador:\\ \,\\ \,}}} \\ \cline{1-2}
+\multicolumn{2}{|l|}{\textbf{Professor:} Abrantes Araújo Silva Filho\hspace{4cm}\,}                 & \multicolumn{1}{l|}{}                                &                                                   \\ \cline{1-2}
+\multicolumn{2}{|l|}{\textbf{Aluno:}}                                                 & \multicolumn{1}{l|}{}                                &                                                   \\ \hline
+\multicolumn{1}{|l|}{\textbf{Turma:}\hspace{5cm}\,}    & \multicolumn{1}{l|}{\textbf{Semestre:}}    & \multicolumn{2}{l|}{\textbf{Valor:} 10 pontos}                                                           \\ \hline
+\multicolumn{1}{|l|}{\textbf{Data:}}     & \multicolumn{3}{l|}{\textbf{Avaliação:} 1ª avaliação (teórica)} \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{center}
+\fbox{\setlength\fboxsep{0.3cm}\fbox{\parbox{15.4cm}{
+\begin{center}
+\textbf{INSTRUÇÕES PARA A REALIZAÇÃO DESTA AVALIAÇÃO:}
+\end{center}
+\begin{itemize}
+\item Esta avaliação refere-se ao conteúdo dos capítulos 1, 2, 5, 6 e 7 do livro
+      texto de referência da disciplina: \textbf{Sistemas de Bancos de Dados},
+      de Elmasri \& Navathe (7ª edição, publicado pela Person em 2018).
+\item Existem 40 questões objetivas nesta avaliação das quais \textbf{você deve
+      responder, no mínimo, 30 questões}. Isso significa que você pode deixar de
+      reponder 10 questões à sua escolha (a questão final, do ENADE, é
+      obrigatória). A nota será calculada proporcionalmente ao número de
+      questões que você respondeu.
+\item \textbf{Leia atentamente cada questão!} As questões objetivas podem ter
+      \textbf{uma ou mais respostas a serem marcadas}. As questões nas quais
+      devem ser escolhidas mais de uma resposta estão claramente identificadas.
+\item Esta avaliação é \textbf{individual} e \textbf{sem consulta}.
+\item \textbf{Desligue o celular} antes de começar a avaliação.
+\item As questões podem ser respondidas com lápis ou caneta (avaliações feitas
+      com lápis não terão direito à revisões posteriores). As respostas devem
+      ser marcadas nas próprias questões. Questões \textbf{rasuradas} serão
+      consideradas nulas.
+\item Siga todas as normas de \textbf{Integridade Acadêmica} da disciplina.
+      Alunos que forem flagrados com qualquer espécie de ``cola'' ou trocando
+      informações com outros alunos terão suas avaliações recolhidas, as notas
+      zeradas, e a situação será encaminhada para a coordenação para a aplicação
+      das penalidades previstas pela universidade.
+\item Considerando 90 minutos de avaliação e 30 questões você terá, em média,
+      3min por questão. É suficiente, mas preste atenção ao tempo!
+\item Há uma \textbf{Questão ENADE}, obrigatória, no final da avaliação.
+      Essa questão valerá 1,0 (um ponto) adicional que pode ser utilizado para
+      recuperar até 3 (três) ou 4 (quatro) erros cometidos nas questões 1 a 40,
+      dependendo do número de questões que você responder.
+\item Boa avaliação!
+\end{itemize}
+}}}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Inicia as questões:
+\begin{questions}
+\setlength\linefillthickness{0.2pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Inclui as questões
+\newpage
+\input{main/placeholder}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Termina as questões as questões:
+\end{questions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Termina o documento
+\end{document}
+

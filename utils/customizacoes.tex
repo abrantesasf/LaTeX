@@ -17,53 +17,20 @@
 % Commando para ``italizar´´ palavras em inglês (e outras línguas!):
 \newcommand{\ingles}[1]{\textit{#1}}
 
-% Utilitários para a classe Exam:
-\makeatletter
-\@ifclassloaded{exam}{%
-   % Linhas para respostas
-   \setlength\linefillthickness{0.2pt}
-   \newcommand{\umalinha}{\fillwithlines{0.25in}}
-   \newcommand{\duaslinhas}{\fillwithlines{0.50in}}
-   \newcommand{\treslinhas}{\fillwithlines{0.75in}}
-   \newcommand{\quatrolinhas}{\fillwithlines{1.00in}}
-   \newcommand{\cincolinhas}{\fillwithlines{1.25in}}
-   \newcommand{\seislinhas}{\fillwithlines{1.50in}}
-   \newcommand{\setelinhas}{\fillwithlines{1.75in}}
-   \newcommand{\oitolinhas}{\fillwithlines{2.00in}}
-   \newcommand{\novelinhas}{\fillwithlines{2.25in}}
-   \newcommand{\dezlinhas}{\fillwithlines{2.50in}}
-   
-   % Verdadeiro ou Falso
-   \newcommand{\vf}[1][{}]{%
-      \fillin[#1][0.25in]%
-   }
-   
-   % Título das respostas:
-   %\renewcommand{\solutiontitle}{\noindent\textbf{Resposta:}\par\noindent}
-   \renewcommand{\solutiontitle}{\noindent}
-   %\shadedsolutions
-   %\SolutionEmphasis{\itshape}
-   
-   % Altera a marca de questão correta e a ênfase:
-   \checkedchar{$\Rightarrow$}
-   %\CorrectChoiceEmphasis{\color{red}}
-}{}
-\makeatother
-
 % Comando para escrever uma função e símbolos em fonte monoespaçada:
 \newcommand{\funcao}[1]{\textbf{\texttt{#1}}}
 \newcommand{\simbolo}[1]{\texttt{#1}}
 
 % Commando para colocar o espaço correto entre um número e sua unidade:
-%\newcommand{\unidade}[2]{\ensuremath{#1\,\mathrm{#2}}}
-%\newcommand{\unidado}[2]{{#1}\,{#2}}
+\newcommand{\unidade}[2]{\ensuremath{#1\,\mathrm{#2}}}
+\newcommand{\unidado}[2]{{#1}\,{#2}}
 
 % Produz ordinal masculino ou feminino dependendo do segundo argumento:
-%\newcommand{\ordinal}[2]{%
-%#1%
-%\ifthenelse{\equal{a}{#2}}%
-%{\textordfeminine}%
-%{\textordmasculine}}
+\newcommand{\ordinal}[2]{%
+#1%
+\ifthenelse{\equal{a}{#2}}%
+{\textordfeminine}%
+{\textordmasculine}}
 
 % Comando para colocar o autor da citação corretamente justificado à direita:
 % Modificado de: https://latex.org/forum/viewtopic.php?p=15605&sid=216895679326b531e85caec779e1d710#p15605
