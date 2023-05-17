@@ -27,6 +27,7 @@
   \sisetup{separate-uncertainty}
   \sisetup{multi-part-units = single}
   \sisetup{binary-units = true}
+  \sisetup{list-final-separator = { e }}
 \usepackage{syllogism}
   \setsylpuncpa{}
   \setsylpuncpb{}
@@ -43,6 +44,9 @@
 % Altera separador decimal via comando, se necessário (prefira o siunitx):
 %\mathchardef\period=\mathcode`.
 %\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+
+% Declara grau Fahrenheit
+\DeclareSIUnit{\degreeFahrenheit}{\unit{\degree}F}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

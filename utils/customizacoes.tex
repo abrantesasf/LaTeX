@@ -55,3 +55,8 @@
 \def\leftouterjoin{\mathbin{\ojoin\mkern-7.8mu\Join}}
 \def\rightouterjoin{\mathbin{\Join\mkern-7.8mu\ojoin}}
 \def\fullouterjoin{\mathbin{\ojoin\mkern-7.8mu\Join\mkern-7.8mu\ojoin}}
+
+% Comando para números dentro de círculos
+% https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
