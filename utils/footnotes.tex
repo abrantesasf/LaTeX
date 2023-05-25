@@ -17,7 +17,10 @@
 %%% NÃO ALTERE a ordem de carregamento dos packages!
 \makeatletter
 \@ifclassloaded{faesatex2}{}{
-  \usepackage{footmisc}
+  %\usepackage{footmisc}
+  \usepackage{footnote}
+  \BeforeBeginEnvironment{tcolorbox}{\savenotes}
+  \AfterEndEnvironment{tcolorbox}{\spewnotes}
 }
 \makeatother
 
