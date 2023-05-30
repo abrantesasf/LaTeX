@@ -60,3 +60,13 @@
 % https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% Comando para a linguagem Snap!
+\newcommand{\snap}{Snap\textit{!}}
+
+% Figura inline:
+\newcommand{\inlinefigure}[1]{%
+  \begingroup\normalfont
+  \includegraphics[height=\fontcharht\font`\B]{#1}%
+  \endgroup
+}
