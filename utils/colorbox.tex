@@ -15,7 +15,6 @@
 %%% Ativa suporte para boxes coloridos
 \usepackage[many]{tcolorbox}
 
-
 % Caixa vermelha
 \newcommand{\boxvermelho}[2]{%
 \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,
@@ -35,4 +34,11 @@
 \begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,
        title=\textbf{#1}]
 #2
+\end{tcolorbox}}
+
+% Faixa azul
+\newcommand{\faixaazul}[1]{%
+\begin{tcolorbox}[top=0pt,bottom=0pt,left=0mm,right=0mm,colback=blue!75!black,
+       colframe=blue!75!black,coltext=white]
+\textbf{#1}
 \end{tcolorbox}}
