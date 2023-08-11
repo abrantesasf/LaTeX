@@ -42,3 +42,19 @@
        colframe=blue!75!black,coltext=white]
 \textbf{#1}
 \end{tcolorbox}}
+
+% Faixa cinza
+\newcommand{\faixacinza}[1]{\vspace{0.3cm}%
+\begin{tcolorbox}[top=0pt,bottom=0pt,left=0mm,right=0mm,
+       colback=Gray!15!white,colframe=Gray!15!white,coltext=black]
+\textbf{#1}
+\end{tcolorbox}\vspace{-0.2cm}}
+
+% Box de codigo
+\newcommand{\boxcodigo}[0]{%
+\protect\begin{tcolorbox}
+\begin{verbatim}
+x
+\end{verbatim}
+\end{tcolorbox}
+}
