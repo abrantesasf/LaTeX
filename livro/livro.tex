@@ -7,15 +7,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Classe do documento
-\RequirePackage{ifpdf}
-\ifpdf
-  \documentclass[pdftex, brazil, 12pt, twoside]{book}
-\else
-  \documentclass[brazil, 12pt, twoside]{book}
-\fi
+\documentclass[12pt]{book}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Preâmbulo com todas as outras outras chamadas para todos os outros packages
 %%% e o que mais for necessário
 \input{utils/preambulo.tex}
@@ -23,21 +18,27 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ajuste do layout, espaçamento de linhas e etc.:
-\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2cm}
-\onehalfspacing
+\geometry{a4paper, portrait, twoside,
+  left=2cm, hmarginratio=2:3,
+  top=2cm, vmarginratio=2:3,
+  bindingoffset=0cm}
+%\onehalfspacing
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Configurações para as propriedades do PDF:
 \hypersetup{
-      pdftitle={TÍTULO DO LIVRO},
-      pdfauthor={Abrantes Araújo Silva Filho},
-      pdfsubject={ASSUNTO},
-      pdfkeywords={KEYWORDS},
-      pdfinfo={
-        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
-        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
-      }}
+   hidelinks,           % Comente para web, descomente para impressão
+   colorlinks=true,     % True para web, False para impressão
+   pdftitle={TÍTULO DO LIVRO},
+   pdfauthor={AUTOR(ES)},
+   pdfsubject={ASSUNTO},
+   pdfkeywords={PALAVRAS, CHAVES},
+   pdfinfo={
+      CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+      ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+   }
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,23 +53,32 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Front matter
+\pdfbookmark[1]{TITULO DO LIVRO}{titulo}
 \frontmatter
-\title{Título do Livro}
-\author{Abrantes Araújo Silva Filho}
-\date{Agosto de 2019}
+
+\title{TÍTULO DO LIVRO}
+\author{AUTOR(ES)}
+\date{DATA}
 \maketitle
+
 \include{front/dedicatoria}
+
+\pdfbookmark[1]{Sumário}{sumario}
 \tableofcontents
+
 \include{front/prefacio}
+
 \include{front/agradecimentos}
+
 \listoftables
+
 \listoffigures
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Main matter
 \mainmatter
-\part{Título da parte}
+\part{TÍTULO DA PARTE}
 \include{main/capitulo}
 
 
