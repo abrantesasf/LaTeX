@@ -36,3 +36,8 @@
    anchorcolor=black    % cor para o texto âncora (alvo)
 }
 
+% Desabilita comandos especiais para não ocorrer o warning:
+% "Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding)"
+\pdfstringdefDisableCommands{%
+  \def\hfill{}%
+}
