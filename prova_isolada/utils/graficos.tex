@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% graficos.tex
+%
+% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+% preferências e modelos pessoais.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Suporte à importação de gráficos externos
+\makeatletter
+\@ifclassloaded{beamer}{
+  \usepackage{graphicx}
+}{
+  \ifxetex
+    \usepackage{graphicx}
+  \else
+    \ifpdf
+      \usepackage[pdftex]{graphicx}
+    \else
+      \usepackage[dvips]{graphicx}
+    \fi
+  \fi
+}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Suporte à criação de gráficos proceduralmente no LaTeX:
+\usepackage{tikz}
+\usetikzlibrary{arrows, automata, backgrounds, matrix, patterns, positioning,
+                shapes, shadows, calc, circuits.logic.US}
+

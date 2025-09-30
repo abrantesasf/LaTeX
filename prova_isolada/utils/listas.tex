@@ -1,0 +1,34 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% listas.tex
+%
+% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+% preferências e modelos pessoais.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages para ambientes de listas
+
+% Para: beamer:
+\makeatletter
+\@ifclassloaded{beamer}{
+  \usepackage{listings}
+}{}
+\makeatother
+
+% Para: faesatex2 e outros:
+\makeatletter
+\@ifclassloaded{faesatex2}{
+  \usepackage[ampersand]{easylist}
+}{
+  \usepackage{enumitem}
+  \usepackage[ampersand]{easylist}
+  %\usepackage{fancyvrb, bera}
+}
+\makeatother
+

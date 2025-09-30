@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pdfconfig.tex
+%
+% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+% preferências e modelos pessoais.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Configurações básicas do PDF
+\hypersetup{
+   unicode=true,
+   pdflang={pt-BR},
+   bookmarksopen=false,
+   bookmarksnumbered=true,
+   bookmarksopenlevel=5,
+   pdfdisplaydoctitle=true,
+   pdfpagemode=UseOutlines,
+   pdfstartview=FitH,
+   pdfnewwindow=true,
+   %pagebackref=true,
+   pdfcreator={TeX Live 2025: XeTeX (0.999997) + LaTeX2e (2024-11-01) + eTeX (2.6) + TeX (3.141592653)},
+   pdfproducer={xdvipdfmx (20250205)},
+   %pdftitle={\@title}, 
+   %pdfauthor={\@author},
+   %pdfsubject={\imprimirpreambulo},
+   %pdfkeywords={\imprimirpalavraschave, \imprimirkeywords}, 
+   bookmarksdepth=5,
+   citecolor=cyan,      % cor dos links para as referências bibliográficas
+   linkcolor=red,       % cor dos links internos (sumário, figuras, rodapé)
+   filecolor=magenta,   % dor dos links para arquivos
+   urlcolor=blue,       % cor para links URL
+   anchorcolor=black    % cor para o texto âncora (alvo)
+}
+
+% Desabilita comandos especiais para não ocorrer o warning:
+% "Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding)"
+\pdfstringdefDisableCommands{%
+  \def\hfill{}%
+}
