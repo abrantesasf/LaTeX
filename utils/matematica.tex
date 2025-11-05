@@ -66,8 +66,10 @@
   \newtheorem*{nota}{Nota}
   \newtheorem*{observacao}{Observação:}
 }{}
+\makeatother
 
 % Para book:
+\makeatletter
 \@ifclassloaded{book}{
   \theoremstyle{definition}
   \newtheorem{definicao}{Definição}[chapter]
@@ -82,6 +84,7 @@
 \makeatother
 
 % Para uvvtex2:
+\makeatletter
 \@ifclassloaded{uvvtex2}{
   \theoremstyle{definition}
   \newtheorem{definicao}{Definição}[chapter]
@@ -96,6 +99,7 @@
 \makeatother
 
 % Para faesatex2:
+\makeatletter
 \@ifclassloaded{faesatex2}{
   \theoremstyle{definition}
   \newtheorem{definicao}{Definição}[chapter]
