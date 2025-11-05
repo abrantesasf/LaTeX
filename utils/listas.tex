@@ -1,11 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % listas.tex
 %
-% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
-% preferências e modelos pessoais.
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
 %    https://github.com/abrantesasf/latex
+%    https://github.com/uvv-computacao/uvvtex2
 %
 % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13,22 +14,26 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Packages para ambientes de listas
-
-% Para: beamer:
 \makeatletter
-\@ifclassloaded{beamer}{
-  \usepackage{listings}
-}{}
-\makeatother
-
-% Para: faesatex2 e outros:
-\makeatletter
-\@ifclassloaded{faesatex2}{
-  \usepackage[ampersand]{easylist}
-}{
-  \usepackage{enumitem}
-  \usepackage[ampersand]{easylist}
-  %\usepackage{fancyvrb, bera}
+\@ifclassloaded{beamer}%
+{
+    \usepackage{listings}
+}%
+{%
+    \@ifclassloaded{faesatex2}%
+    {%
+        \usepackage[ampersand]{easylist}
+    }%
+    {%
+        \@ifclassloaded{uvvtex2}%
+	{%
+	    \usepackage[ampersand]{easylist}
+	}%
+	{%
+	    \usepackage{enumitem}
+            \usepackage[ampersand]{easylist}
+	}%
+    }%
 }
 \makeatother
 

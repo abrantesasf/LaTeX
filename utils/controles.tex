@@ -1,11 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % controles.tex
 %
-% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
-% preferências e modelos pessoais.
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
 %    https://github.com/abrantesasf/latex
+%    https://github.com/uvv-computacao/uvvtex2
 %
 % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,14 +16,23 @@
 %%% Carrega pacotes iniciais necessários para estrutura de controle e para a
 %%% criação e o parse de novos comandos
 \makeatletter
-\@ifclassloaded{faesatex2}{
-  \usepackage{xparse}
-  \usepackage{ifxetex}
-}{
-  \usepackage{ifthen}
-  \usepackage{xparse}
-  \usepackage{ifxetex}
-  \usepackage{version}
+\@ifclassloaded{faesatex2}%
+{%
+    \usepackage{xparse}
+    \usepackage{ifxetex}
+}%
+{%
+    \@ifclassloaded{uvvtex2}%
+    {%
+        \usepackage{xparse}
+        \usepackage{ifxetex}
+    }%
+    {%
+        \usepackage{ifthen}
+        \usepackage{xparse}
+        \usepackage{ifxetex}
+        \usepackage{version}
+    }%
 }
 \makeatother
 

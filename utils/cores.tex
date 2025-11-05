@@ -1,11 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % cores.tex
 %
-% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
-% preferências e modelos pessoais.
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
 %    https://github.com/abrantesasf/latex
+%    https://github.com/uvv-computacao/uvvtex2
 %
 % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -19,12 +20,12 @@
 %%%    svgnames (150)
 %%%    x11names (300)
 \makeatletter
-\@ifclassloaded{beamer}{
-   % Beamer sem opções
-  \usepackage{xcolor} 
-}{
-   % Resto opção svgnames
-  \usepackage[svgnames, table]{xcolor}
-}
+\@ifclassloaded{beamer}%
+{%
+    \usepackage{xcolor} 
+}%
+{%
+    \usepackage[svgnames, table]{xcolor}
+}%
 \makeatother
 

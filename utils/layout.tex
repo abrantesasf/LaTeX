@@ -1,11 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % layout.tex
 %
-% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
-% preferências e modelos pessoais.
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
 %    https://github.com/abrantesasf/latex
+%    https://github.com/uvv-computacao/uvvtex2
 %
 % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,5 +67,39 @@
   \usepackage{microtype}
   \usepackage{lastpage}
 \fi
+}{}
+\makeatother
+
+% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
+% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+\makeatletter
+\@ifclassloaded{uvvtex2}{
+  % Distância entre o topo da página e o primeiro float:
+  \setlength{\@fptop}{5pt}
+  % O tamanho do parágrafo é dado por:
+  \setlength{\parindent}{1.3cm}
+  % Controle do espaçamento entre um parágrafo e outro:
+  \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+  % Para melhorias de justificação:
+  \usepackage{microtype}
+  % Para contar págians:
+  \usepackage{lastpage}
+}{}
+\makeatother
+
+% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
+% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+\makeatletter
+\@ifclassloaded{faesatex2}{
+  % Distância entre o topo da página e o primeiro float:
+  \setlength{\@fptop}{5pt}
+  % O tamanho do parágrafo é dado por:
+  \setlength{\parindent}{1.3cm}
+  % Controle do espaçamento entre um parágrafo e outro:
+  \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+  % Para melhorias de justificação:
+  \usepackage{microtype}
+  % Para contar págians:
+  \usepackage{lastpage}
 }{}
 \makeatother

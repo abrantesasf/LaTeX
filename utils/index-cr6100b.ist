@@ -1,4 +1,4 @@
-% Índice Remissivo para o livro da CR6.100A:
+% Estilo de formatação para o índice remissivo da CR6.100A:
 heading_prefix "{\\bfseries\\hfil "
 heading_suffix "\\hfil}\\nopagebreak\n"
 headings_flag  1

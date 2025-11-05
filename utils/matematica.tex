@@ -1,11 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % matematica.tex
 %
-% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
-% preferências e modelos pessoais.
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
 %    https://github.com/abrantesasf/latex
+%    https://github.com/uvv-computacao/uvvtex2
 %
 % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -26,7 +27,7 @@
   \sisetup{output-decimal-marker = {,}}
   \sisetup{separate-uncertainty}
   \sisetup{multi-part-units = single}
-  \sisetup{binary-units = true}
+  %\sisetup{binary-units = true}
   \sisetup{list-final-separator = { e }}
 \usepackage{syllogism}
   \setsylpuncpa{}
@@ -39,7 +40,6 @@
 \usepackage{mathtools}
 \usepackage{icomma}
 \usepackage{nicefrac}
-%\usepackage{units}
 
 % Altera separador decimal via comando, se necessário (prefira o siunitx):
 %\mathchardef\period=\mathcode`.
@@ -69,6 +69,34 @@
 
 % Para book:
 \@ifclassloaded{book}{
+  \theoremstyle{definition}
+  \newtheorem{definicao}{Definição}[chapter]
+  \newtheorem{conjecture}{Conjectura}[chapter]
+  \newtheorem{teorema}{Teorema}[chapter]
+  \newtheorem{lemma}{Lema}[chapter]
+  \newtheorem{corolario}{Corolário}[chapter]
+  \theoremstyle{remark}
+  \newtheorem*{nota}{Nota}
+  \newtheorem*{observacao}{Observação:}
+}{}
+\makeatother
+
+% Para uvvtex2:
+\@ifclassloaded{uvvtex2}{
+  \theoremstyle{definition}
+  \newtheorem{definicao}{Definição}[chapter]
+  \newtheorem{conjecture}{Conjectura}[chapter]
+  \newtheorem{teorema}{Teorema}[chapter]
+  \newtheorem{lemma}{Lema}[chapter]
+  \newtheorem{corolario}{Corolário}[chapter]
+  \theoremstyle{remark}
+  \newtheorem*{nota}{Nota}
+  \newtheorem*{observacao}{Observação:}
+}{}
+\makeatother
+
+% Para faesatex2:
+\@ifclassloaded{faesatex2}{
   \theoremstyle{definition}
   \newtheorem{definicao}{Definição}[chapter]
   \newtheorem{conjecture}{Conjectura}[chapter]

@@ -1,8 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % pdfconfig.tex
 %
-% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
-% preferências e modelos pessoais.
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%    https://github.com/uvv-computacao/uvvtex2
 %
 % Para maiores informações, visite:
 %    https://github.com/abrantesasf/latex
@@ -10,6 +14,8 @@
 % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configurações básicas do PDF
 \hypersetup{
    unicode=true,
@@ -41,3 +47,56 @@
 \pdfstringdefDisableCommands{%
   \def\hfill{}%
 }
+
+% Para a uvvtex2:
+\makeatletter
+\@ifclassloaded{uvvtex2}%
+{%
+    \hypersetup{
+        pdftitle={\@title}, 
+        pdfauthor={\@author},
+        pdfsubject={\imprimirpreambulo},
+        pdfkeywords={\imprimirpalavraschave, \imprimirkeywords}
+    }
+}%
+{%
+    \@ifclassloaded{faesatex2}%
+    {%
+        \hypersetup{
+            pdftitle={\@title}, 
+            pdfauthor={\@author},
+            pdfsubject={\imprimirpreambulo},
+            pdfkeywords={\imprimirpalavraschave, \imprimirkeywords}
+        }
+    }%
+    {%
+    }%
+}
+\makeatother
+
+% Ajusta os links e cores dependendo se o PDF é para divulgação web ou se é
+% para impressão final em preto-e-branco. Obs.:
+%   colorlinks:   false = links em caixas; true = links coloridos
+%   hidelinks:    esconde os links
+\makeatletter
+\@ifclassloaded{uvvtex2}%
+{%
+    \ifthenelse{\equal{\imprimirversaoweb}{S}}{% Versão para web
+        \hypersetup{colorlinks=true}%
+    }{% Versão para impressão
+        \hypersetup{hidelinks, colorlinks=false}%
+    }
+}%
+{%
+    \@ifclassloaded{faesatex2}%
+    {%
+        \ifthenelse{\equal{\imprimirversaoweb}{S}}{% Versão para web
+            \hypersetup{colorlinks=true}%
+        }{% Versão para impressão
+            \hypersetup{hidelinks, colorlinks=false}%
+        }
+    }%
+    {%
+    }%
+}%
+\makeatother

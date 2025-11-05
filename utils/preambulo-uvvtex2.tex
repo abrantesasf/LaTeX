@@ -1,17 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% preambulo.tex
+% preambulo-uvv.tex
 %
-% Arquivo de configuração de packages para o LaTeX, considerando diversas
-% classes que constumo utilizar.
-%
-% Para maiores informações, visite:
-%    https://github.com/abrantesasf/latex
-%    https://github.com/uvv-computacao/uvvtex2
+% Arquivo de chamada de todos os outros arquivos de configurações de packages
+% para uso com a classe uvvTeX2, para a formatação de trabalhos acadêmicos na
+% Universidade Vila Velha (UVV) (https://www.uvv.br).
 %
 % Para maiores informações, visite:
-%    https://github.com/abrantesasf/latex
+%    https://github.com/abrantesasf/uvvtex2
 %
-% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+% NÃO ALTERE NADA AQUI!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -30,17 +27,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Configurações para autores:
 \input{utils/autores}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Cabeçalho e rodapé:
-%%% Atenção! É MUITO DIFÍCIL ajustar apropriadamente os running headers
-%%% e running footers da primeira vez. Você pode confiar no LaTeX e deixar que
-%%% ele faça o ajuste automaticamente ou pode quebrar a cabeça e
-%%% tentar melhorar algo que o LaTeX já faz muito bem, mesmo que não fique
-%%% exatamente do jeito que você quer. O que você prefere? Se quiser ajustar
-%%% manualmente, descomente a linha abaixo e faça as configurações no arquivo
-%%% "utils/headings.tex".
-%\input{utils/headings}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Configuração para as fontes do documento:
@@ -63,6 +49,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Matemática:
 \input{utils/matematica}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Referências bibliográficas:
+\input{utils/bibliografia}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Cores:
@@ -98,7 +88,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ambientes para quadros:
-%\input{utils/quadros}
+\input{utils/quadros}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ambientes floats e similares:
@@ -119,14 +109,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Glossário e índice remissivo:
 \input{utils/glossindex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Referências bibliográficas:
-\input{utils/bibliografia}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Ajustes para a classe EXAM:
-\input{utils/exam}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ajustes para textos:

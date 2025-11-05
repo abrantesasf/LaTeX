@@ -1,11 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % toc.tex
 %
-% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
-% preferências e modelos pessoais.
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
 %    https://github.com/abrantesasf/latex
+%    https://github.com/uvv-computacao/uvvtex2
 %
 % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13,16 +14,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ajustes de sumário:
-
-% Para article:
 \makeatletter
-\@ifclassloaded{article}{
-  \usepackage[nottoc]{tocbibind}
-}{}
-
-% Para book:
-\@ifclassloaded{book}{
-  \usepackage{tocbibind}
-}{}
+\@ifclassloaded{article}%
+{
+    \usepackage[nottoc]{tocbibind}
+}
+{
+    \@ifclassloaded{book}
+    {
+        \usepackage{tocbibind}
+    }
+    {
+    }
+}
 \makeatother
-
