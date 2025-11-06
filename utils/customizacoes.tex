@@ -28,11 +28,17 @@
 \newcommand{\unidado}[2]{{#1}\,{#2}}
 
 % Produz ordinal masculino ou feminino dependendo do segundo argumento:
-\newcommand{\ordinal}[2]{%
-#1%
-\ifthenelse{\equal{a}{#2}}%
-{\textordfeminine}%
-{\textordmasculine}}
+\makeatletter
+    \@ifclassloaded{uvvtex2}%
+    {}%
+    {%
+        \newcommand{\ordinal}[2]{%
+            #1%
+            \ifthenelse{\equal{a}{#2}}%
+            {\textordfeminine}%
+            {\textordmasculine}}
+    }%
+\makeatother
 
 % Comando para colocar o autor da citação corretamente justificado à direita:
 % Modificado de: https://latex.org/forum/viewtopic.php?p=15605&sid=216895679326b531e85caec779e1d710#p15605
