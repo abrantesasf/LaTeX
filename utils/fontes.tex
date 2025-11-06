@@ -21,32 +21,27 @@
 %%% Configurações de encodings e fontes:
 \ifxetex
   % Se usar XeLaTeX, usa fontes específicas:
-  %\usepackage[tuenc,no-math]{fontspec}
-  \usepackage[tuenc]{fontspec}
-  \setmainfont{equity-text-a-regular.otf}[
-    %Path           = /home/abrantesasf/.local/share/fonts/ ,
-    Path           = utils/fontes/ ,
+  \usepackage{fontspec}
+  \setmainfont[
+    Path           = utils/fontes/                         ,
+    UprightFont    = equity-text-a-regular.otf             ,
     BoldFont       = equity-text-a-bold.otf                ,
     ItalicFont     = equity-text-a-italic.otf              ,
     BoldItalicFont = equity-text-a-bold-italic.otf         ,
-    SmallCapsFont  = equity-caps-a-regular.otf]
-  \setsansfont{equity-text-b-regular.otf}[
-    %Path           = /home/abrantesasf/.local/share/fonts/ ,
-    Path           = utils/fontes/ ,
-    BoldFont       = equity-text-b-bold.otf                ,
-    ItalicFont     = equity-text-b-italic.otf              ,
-    BoldItalicFont = equity-text-b-bold-italic.otf]      
-  \setmonofont{courier_prime.ttf}[
-    %Path           = /home/abrantesasf/.local/share/fonts/ ,
-    Path           = utils/fontes/ ,
+    SmallCapsFont  = equity-caps-a-regular.otf]{Equity Text A}
+  \setsansfont[
+    Path           = utils/fontes/                         ,
+    UprightFont    = concourse_4_regular.otf               ,
+    BoldFont       = concourse_4_bold.otf                  ,
+    ItalicFont     = concourse_4_italic.otf                ,
+    BoldItalicFont = concourse_4_bold_italic.otf           ,
+    SmallCapsFont  = concourse_4_caps_regular.otf]{Concourse 4}
+  \setmonofont[
+    Path           = utils/fontes/                         ,
+    UprightFont    = courier_prime.ttf                     ,
     BoldFont       = courier_prime_bold.ttf                ,
     ItalicFont     = courier_prime_italic.ttf              ,
-    BoldItalicFont = courier_prime_bold_italic.ttf]
-%  \setmonofont{triplicate-t4-regular.otf}[
-%    Path           = /home/abrantesasf/.local/share/fonts/ ,
-%    BoldFont       = triplicate-t4-bold.otf                ,
-%    ItalicFont     = triplicate-t4-italic.otf              ,
-%    BoldItalicFont = triplicate-t4-bold-italic.otf]
+    BoldItalicFont = courier_prime_bold_italic.ttf]{Courier Prime}
   \usepackage{fontawesome5}
 \else
   % Se não for XeLaTeX, vai com as normais mesmo:
