@@ -15,6 +15,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Packages para tabelas
 \usepackage{array}
+\usepackage{tabularray}
+\DefTblrTemplate{contfoot-text}{default}{\footnotesize (continua na próxima página)}
+\DefTblrTemplate{conthead-text}{default}{(continuação)}
+\ExplSyntaxOn
+\RenewDocumentCommand \TblrNote { m }
+  {
+    \cs_if_exist:NT \hypersetup
+      { \ExpTblrTemplate { note-border }{ default } }
+    \TblrOverlap
+      {
+        \__tblr_hyper_link:nn {#1}
+          { \kern0.03em \textsuperscript { \rmfamily \UseTblrFont { note-tag } #1 } }
+      }
+  }
+\ExplSyntaxOff
+\DeclareTblrTemplate{note-tag}{normal}{
+  \textsuperscript{\rmfamily \UseTblrFont{note-tag}\InsertTblrNoteTag}
+}
+\SetTblrTemplate{note-tag}{normal}
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{tabu}

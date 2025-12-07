@@ -55,3 +55,7 @@
 }{}
 \makeatother
 
+% Ajustes para citações com o cleveref:
+\newcommand{\SeCref}[1]{%
+  ``\hyperref[#1]{\Cref*{#1}: \nameref*{#1}}''%
+}
