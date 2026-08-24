@@ -1,0 +1,234 @@
+\usepackage{needspace}
+
+% ============================================================
+% Estrutura jurídica: artigos, cláusulas, parágrafos,
+% incisos e alíneas
+% ============================================================
+
+\newcounter{artigo}
+\newcounter{clausula}
+\newcounter{paragrafo}
+\newcounter{inciso}
+\newcounter{alinea}
+
+% ============================================================
+% Medidas
+% ============================================================
+
+% Parágrafos numerados
+\newlength{\recuoparagrafo}
+\newlength{\larguraparagrafo}
+
+\setlength{\recuoparagrafo}{\parindent}
+\setlength{\larguraparagrafo}{2.5em}
+
+% Parágrafo único
+\newlength{\larguraparagrafounico}
+
+\settowidth{\larguraparagrafounico}{%
+  \textbf{Parágrafo único.}\enspace
+}
+
+% Incisos
+\newlength{\recuoinciso}
+\newlength{\largurainciso}
+
+\setlength{\recuoinciso}{%
+  \dimexpr\recuoparagrafo+\larguraparagrafo\relax
+}
+\setlength{\largurainciso}{3em}
+
+% Alíneas
+\newlength{\recuoalinea}
+\newlength{\larguraalinea}
+
+\setlength{\recuoalinea}{%
+  \dimexpr\recuoinciso+\largurainciso\relax
+}
+\setlength{\larguraalinea}{2em}
+
+
+% ------------------------------------------------------------
+% Formatação dos números
+% ------------------------------------------------------------
+
+\renewcommand{\theartigo}{\arabic{artigo}}
+\renewcommand{\theclausula}{\arabic{clausula}}
+\renewcommand{\theparagrafo}{\arabic{paragrafo}}
+\renewcommand{\theinciso}{\Roman{inciso}}
+\renewcommand{\thealinea}{\alph{alinea}}
+
+% ------------------------------------------------------------
+% Artigo
+%
+% Uso:
+%   \artigo
+%   \artigo[Do objeto]
+% ------------------------------------------------------------
+
+\newcommand{\artigo}[1][]{%
+  \par
+  \Needspace{3\baselineskip}%
+  \vspace{1.5em}%
+  \refstepcounter{artigo}%
+  \setcounter{paragrafo}{0}%
+  \setcounter{inciso}{0}%
+  \setcounter{alinea}{0}%
+  \noindent
+  \textbf{%
+     Artigo~\theartigo
+     \ifnum\value{artigo}<10 \textsuperscript{o}\fi%
+     \if\relax\detokenize{#1}\relax
+     \else\space-- #1%
+     \fi
+  }%
+  \par\nobreak
+}
+
+% ------------------------------------------------------------
+% Cláusula
+%
+% Uso:
+%   \clausula
+%   \clausula[Do objeto]
+% ------------------------------------------------------------
+
+\newcommand{\clausula}[1][]{%
+  \par
+  \Needspace{3\baselineskip}%
+  \vspace{1.5em}%
+  \refstepcounter{clausula}%
+  \setcounter{paragrafo}{0}%
+  \setcounter{inciso}{0}%
+  \setcounter{alinea}{0}%
+  \Needspace{3\baselineskip}
+  \par\vspace{1.5em}
+  \noindent
+  \textbf{%
+    Cláusula~\theclausula
+    \ifnum\value{clausula}<10 \textsuperscript{a}\fi%
+    \if\relax\detokenize{#1}\relax
+    \else\space-- #1%
+    \fi
+  }%
+  \par\nobreak
+}
+
+
+% ------------------------------------------------------------
+% Parágrafo numerado
+%
+% Uso:
+%   \paragrafo Texto...
+%
+% Produz:
+%   § 1º Texto...
+% ------------------------------------------------------------
+\setlength{\recuoparagrafo}{\parindent}
+\setlength{\larguraparagrafo}{2.5em}
+
+\newcommand{\paragrafo}[1]{%
+  \refstepcounter{paragrafo}%
+  \setcounter{inciso}{0}%
+  \setcounter{alinea}{0}%
+  \par
+  \begingroup
+    \setlength{\parindent}{0pt}%
+    \advance\leftskip by
+      \dimexpr\recuoparagrafo+\larguraparagrafo\relax
+    \noindent
+    \llap{%
+      \makebox[\larguraparagrafo][l]{%
+        \textbf{%
+          §~\theparagrafo
+          \ifnum\value{paragrafo}<10 º\fi
+        }%
+      }%
+    }%
+    \ignorespaces#1%
+    \par
+  \endgroup
+}
+
+% ------------------------------------------------------------
+% Parágrafo único
+%
+% Uso:
+%   \paragrafounico Texto...
+% ------------------------------------------------------------
+
+\newcommand{\paragrafounico}[1]{%
+  \setcounter{inciso}{0}%
+  \setcounter{alinea}{0}%
+  \par
+  \begingroup
+    \setlength{\parindent}{0pt}%
+    \advance\leftskip by
+      \dimexpr\recuoparagrafo+\larguraparagrafounico\relax
+    \noindent
+    \llap{%
+      \makebox[\larguraparagrafounico][l]{%
+        \textbf{§ único.}%
+      }%
+    }%
+    \ignorespaces#1%
+    \par
+  \endgroup
+}
+
+% ------------------------------------------------------------
+% Inciso
+%
+% Uso:
+%   \inciso Texto...
+%
+% Produz:
+%   I – Texto...
+% ------------------------------------------------------------
+
+\newcommand{\inciso}[1]{%
+  \refstepcounter{inciso}%
+  \setcounter{alinea}{0}%
+  \par
+  \begingroup
+    \setlength{\parindent}{0pt}%
+    \advance\leftskip by
+      \dimexpr\recuoinciso+\largurainciso\relax
+    \noindent
+    \llap{%
+      \makebox[\largurainciso][l]{%
+        \textbf{\theinciso\space--}%
+      }%
+    }%
+    \ignorespaces#1%
+    \par
+  \endgroup
+}
+
+% ------------------------------------------------------------
+% Alínea
+%
+% Uso:
+%   \alinea Texto...
+%
+% Produz:
+%   a) Texto...
+% ------------------------------------------------------------
+
+\newcommand{\alinea}[1]{%
+  \refstepcounter{alinea}%
+  \par
+  \begingroup
+    \setlength{\parindent}{0pt}%
+    \advance\leftskip by
+      \dimexpr\recuoalinea+\larguraalinea\relax
+    \noindent
+    \llap{%
+      \makebox[\larguraalinea][l]{%
+        \textbf{\thealinea)}%
+      }%
+    }%
+    \ignorespaces#1%
+    \par
+  \endgroup
+}
