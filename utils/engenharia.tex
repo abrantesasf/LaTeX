@@ -1,0 +1,196 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% engenharia.tex
+%
+% Configurações específicas do livro "Engenharia em 500 Gramas": pacotes de
+% engenharia (circuitos, gráficos de dados, diagramas de tempo), caixas
+% didáticas semânticas e comandos do livro.
+%
+% Deve ser carregado DEPOIS de utils/preambulo.tex (que já carrega tikz,
+% tcolorbox[many], listings, siunitx, xcolor[svgnames] e cleveref). Para isso,
+% em livro.tex, logo após \input{utils/preambulo.tex}, acrescente:
+%    \input{utils/engenharia.tex}
+%
+% Nada aqui altera arquivos do modelo. Os capítulos devem usar SOMENTE os
+% ambientes semânticos abaixo; a aparência é definida neste arquivo.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Circuitos: esquemas elétricos. Estilo europeu (resistor retangular), o
+%%% usado no Brasil. A opção siunitx faz os rótulos usarem \SI, herdando a
+%%% vírgula decimal configurada em utils/matematica.tex.
+\usepackage[siunitx, european]{circuitikz}
+\ctikzset{bipoles/length=1.2cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Gráficos de dados: curvas dos ensaios (motor, sensores, bateria).
+%%% Vírgula decimal e espaço fino como separador de milhar, como no siunitx.
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{
+  compat=1.18,
+  /pgf/number format/.cd, use comma, 1000 sep={\,},
+  every axis/.append style={grid=major, grid style={dotted, gray!60}},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Bibliotecas TikZ para diagramas de blocos, mecânica e o robô no dohyô.
+%%% (utils/graficos.tex já carrega arrows, automata, backgrounds, matrix,
+%%% patterns, positioning, shapes, shadows, calc e circuits.logic.US.)
+\usetikzlibrary{arrows.meta, decorations.pathmorphing, decorations.markings,
+                fit, chains, angles}
+% Não carregue a biblioteca "quotes": a sintaxe ["rótulo"] em \draw e \pic
+% falha neste modelo (o caractere " é ativo por causa do babel/polyglossia).
+% Use "node[above]{$\theta$}" e "pic text=$\alpha$" no lugar. Alternativa:
+% \shorthandoff{"} antes do tikzpicture (e a biblioteca quotes), mas isso
+% desliga localmente os atalhos "" e "- do português.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Diagramas de tempo (PWM, pulso do HC-SR04, protocolo IR) e formatos de
+%%% dados/registradores.
+\usepackage{tikz-timing}
+\usepackage{bytefield}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% QR codes para os vídeos complementares.
+\usepackage{qrcode}
+
+%%% Árvores (classificações, hierarquias).
+\usepackage[edges]{forest}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Tons de cinza usados pelas caixas (edição em preto e branco). Para uma
+%%% edição colorida, basta redefinir estas cores.
+\providecolor{cinzaClaro}{gray}{0.90}
+\providecolor{cinzaMedio}{gray}{0.55}
+\providecolor{cinzaEscuro}{gray}{0.25}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Comandos do livro
+
+% Plataformas: usar sempre os comandos, nunca digitar à mão.
+\newcommand{\RI}{R1}
+\newcommand{\RII}{R2}
+
+% Marcas de rascunho: visíveis enquanto \rascunhotrue; somem na edição final
+% (troque para \rascunhofalse).
+\newif\ifrascunho
+\rascunhotrue
+\newcommand{\TODO}[1]{\ifrascunho{\sffamily\footnotesize\color{cinzaEscuro}%
+  [\textbf{A FAZER:} #1]}\fi}
+
+% \codigo[opções listings]{arquivo}{marcador}
+% Extrai do arquivo-fonte REAL o trecho delimitado por
+%    // @livro: <marcador>
+%    ...
+%    // @livro: <marcador>_fim
+% Assim o livro nunca diverge do firmware: se o código muda, o trecho muda
+% junto. Usa o estilo CStyle definido em utils/computacao.tex.
+%
+% Limitações do listings (testadas no XeLaTeX):
+%  1. Caracteres acima de U+00FF no arquivo-fonte (travessão, símbolo de
+%     aproximação, emojis) geram linhas espúrias. Acentos do português são
+%     seguros.
+%  2. Comentário de bloco /* ... */ de várias linhas dentro de um trecho
+%     marcado faz o marcador final ser ignorado. Dentro de trechos marcados,
+%     use //.
+\newcommand{\codigo}[3][]{%
+  \lstinputlisting[style=CStyle,
+    linerange={#3-#3_fim},
+    rangeprefix=//\ @livro:\ , rangesuffix=,
+    includerangemarker=false, #1]{#2}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Caixas didáticas semânticas
+% Recuo de parágrafo dentro das caixas: o mesmo do texto corrido. O tcolorbox
+% zera \parindent no conteúdo; o primeiro parágrafo fica sem recuo.
+\newlength{\recuocaixa}
+\AtBeginDocument{\setlength{\recuocaixa}{\parindent}}
+\tcbset{
+  e500base/.style={
+    enhanced, breakable, sharp corners,
+    colback=white, colframe=black, coltitle=black,
+    boxrule=0.4pt, left=2mm, right=2mm, top=1.2mm, bottom=1.2mm,
+    fonttitle=\sffamily\bfseries\small,
+    before skip=0.8\baselineskip, after skip=0.8\baselineskip,
+    before upper={\setlength{\parindent}{\recuocaixa}\noindent},
+  },
+  % Título na primeira linha do conteúdo. Substitui "attach title to upper",
+  % que redefine before upper e perderia o recuo acima.
+  e500tituloInterno/.style={detach title,
+    before upper={\setlength{\parindent}{\recuocaixa}%
+      \noindent\tcbtitle\par\smallskip\noindent}},
+}
+
+% Fundamento: teoria transferível, independente do robô.
+\newtcolorbox{fundamento}[1][]{e500base,
+  frame hidden, borderline west={2.5pt}{0pt}{black},
+  title={Fundamento\ifx&#1&\else\ --- #1\fi},
+  e500tituloInterno}
+
+% Modelo: desenvolvimento matemático.
+\newtcolorbox{modelo}[1][]{e500base,
+  colbacktitle=cinzaClaro, titlerule=0.4pt,
+  title={Modelo\ifx&#1&\else\ --- #1\fi}}
+
+% Projeto R1 / Projeto R2: decisão aplicada a cada plataforma.
+\newtcolorbox{projetoRI}[1][]{e500base,
+  colbacktitle=black, coltitle=white,
+  title={Projeto R1\ifx&#1&\else\ --- #1\fi}}
+\newtcolorbox{projetoRII}[1][]{e500base,
+  colbacktitle=cinzaEscuro, coltitle=white, boxrule=0.8pt,
+  title={Projeto R2\ifx&#1&\else\ --- #1\fi}}
+
+% Laboratório: experimento obrigatório do capítulo.
+\newtcolorbox{laboratorio}[1][]{e500base,
+  frame hidden, borderline north={1.2pt}{0pt}{black},
+  borderline south={1.2pt}{0pt}{black},
+  title={Laboratório\ifx&#1&\else\ --- #1\fi},
+  e500tituloInterno}
+
+% Quando a engenharia dá errado: falha real, documentada.
+\newtcolorbox{falhareal}[1][]{e500base,
+  frame hidden, borderline west={5pt}{0pt}{black},
+  title={Quando a engenharia dá errado\ifx&#1&\else\ --- #1\fi},
+  e500tituloInterno}
+
+% Regra -> requisito: regulamento traduzido em requisito verificável.
+\newtcolorbox{regra}[1][]{e500base,
+  frame hidden,
+  borderline={0.6pt}{0pt}{black,dashed},
+  title={Regra $\rightarrow$ requisito\ifx&#1&\else\ --- #1\fi},
+  e500tituloInterno}
+
+% Competição: impacto da decisão no desempenho.
+\newtcolorbox{competicao}[1][]{e500base,
+  colframe=cinzaMedio, boxrule=0.8pt,
+  title={Competição\ifx&#1&\else\ --- #1\fi},
+  e500tituloInterno}
+
+% Avançado: conteúdo opcional; pode ser pulado sem perda de continuidade.
+\newtcolorbox{avancado}[1][]{e500base,
+  colframe=cinzaMedio, boxrule=0.4pt,
+  borderline={0.4pt}{1.2pt}{cinzaMedio},
+  title={Avançado (opcional)\ifx&#1&\else\ --- #1\fi},
+  e500tituloInterno}
+
+% Atenção: cuidado prático, risco de dano ou erro comum de uso.
+\newtcolorbox{atencao}[1][]{e500base,
+  boxrule=1.2pt,
+  title={Atenção\ifx&#1&\else\ --- #1\fi},
+  e500tituloInterno}
+
+% Vídeo complementar: nunca indispensável para entender o texto.
+%    \video{V05.1}{Caracterização do motor em bancada}{https://...}
+\newcommand{\video}[3]{%
+  \begin{tcolorbox}[e500base, colframe=cinzaMedio, boxrule=0.4pt,
+                    sidebyside, lefthand width=18mm, sidebyside gap=3mm]
+    \qrcode[height=16mm]{#3}
+    \tcblower
+    {\sffamily\bfseries\small Vídeo complementar #1}\par
+    #2\par
+    {\footnotesize\ttfamily\url{#3}}
+  \end{tcolorbox}}
